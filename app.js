@@ -16,8 +16,8 @@ const userRoutes = require('./api/routes/users');
 //mongoose.connect('mongodb://localhost:27017/auth',{
 //    useMongoClient:true
 //});
-//const mongodbUri='mongodb://<dbuser>:<dbpassword>@ds347467.mlab.com:47467/raliku';
-const mongodbUri = 'mongodb://localhost:27017/education';
+const mongodbUri='mongodb://alois:alois2019@ds347467.mlab.com:47467/raliku';
+//const mongodbUri = 'mongodb://localhost:27017/education';
 const mongooseUri = uriUtil.formatMongoose(mongodbUri);
 const dbOptions = {};
 
