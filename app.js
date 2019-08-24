@@ -13,11 +13,17 @@ const userRoutes = require('./api/routes/users');
 
 
 
-//mongoose.connect('mongodb://localhost:27017/auth',{
-//    useMongoClient:true
-//});
-const mongodbUri='mongodb://alois:alois2019@ds347467.mlab.com:47467/raliku';
-//const mongodbUri = 'mongodb://localhost:27017/education';
+mongoose.connect(//'mongodb://localhost:27017/education'
+
+"mongodb://localhost:27017/raliku"
+
+,{
+    useMongoClient:true
+});
+//const mongodbUri='"'+"mongodb://"+process.env.uname+":"+process.env.pwd+"@ds347467.mlab.com:"+"/"+'education'+'"';
+
+/** const mongodbUri ="mongodb://localhost:27017/education";
+
 const mongooseUri = uriUtil.formatMongoose(mongodbUri);
 const dbOptions = {};
 
@@ -26,7 +32,7 @@ mongoose.connect(mongooseUri, dbOptions, (err) => {
       console.log(err);
     }
     console.log('Db started');
-  });
+  });**/
   
 
 const app = express();
