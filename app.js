@@ -13,13 +13,13 @@ const userRoutes = require('./api/routes/users');
 
 
 
-mongoose.connect(//'mongodb://localhost:27017/education'
+mongoose.connect(
 
-"mongodb://localhost:27017/raliku"
-
-,{
-    useMongoClient:true
-});
+  //"mongodb://localhost:27017/raliku"
+  "mongodb://raliku:raliku2019@localhost:27017/raliku"
+  , {
+    useMongoClient: true
+  });
 //const mongodbUri='"'+"mongodb://"+process.env.uname+":"+process.env.pwd+"@ds347467.mlab.com:"+"/"+'education'+'"';
 
 /** const mongodbUri ="mongodb://localhost:27017/education";
@@ -33,42 +33,42 @@ mongoose.connect(mongooseUri, dbOptions, (err) => {
     }
     console.log('Db started');
   });**/
-  
+
 
 const app = express();
 app.use(morgan('dev'));
-app.use('/uploads',express.static('uploads')); //added sly
-app.use('/avatars',express.static('avatars')); //added sly
-app.use('/stationery',express.static('stationery')); //added sly
+app.use('/uploads', express.static('uploads')); //added sly
+app.use('/avatars', express.static('avatars')); //added sly
+app.use('/stationery', express.static('stationery')); //added sly
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods','PUT,POST,PATCH,DELETE,GET');
+  res.header('Access-Control-Allow-Methods', 'PUT,POST,PATCH,DELETE,GET');
   res.header('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type,Accept');
   next();
 });
 
 
-app.use('/teachers',alumniRoutes);
-app.use('/users',userRoutes);
-app.use('/professionals',professionalRoutes);
-app.use((req,res,next)=>{
-    const error = new Error("Not found");
-    error.status=404;
-    next(error);
+app.use('/teachers', alumniRoutes);
+app.use('/users', userRoutes);
+app.use('/professionals', professionalRoutes);
+app.use((req, res, next) => {
+  const error = new Error("Not found");
+  error.status = 404;
+  next(error);
 });
 
 
-app.use((error,req,res,next)=>{
-    res.status(error.status || 500);
-      res.json({
-          error:{message : error.message }
-   });
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.json({
+    error: { message: error.message }
   });
+});
 
 
 module.exports = app;
