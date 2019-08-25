@@ -11,19 +11,7 @@ const professionalRoutes = require('./api/routes/professionals');
 const userRoutes = require('./api/routes/users');
 
 
-
-
-mongoose.connect(
-
-  //"mongodb://localhost:27017/raliku"
-  //"mongodb://raliku:raliku2019@localhost:27017/raliku"
-  "mongodb://alois:alois2019@ds347467.mlab.com:47467/raliku"
-  , {
-    useMongoClient: true
-  });
-//const mongodbUri='"'+"mongodb://"+process.env.uname+":"+process.env.pwd+"@ds347467.mlab.com:"+"/"+'education'+'"';
-
-/** const mongodbUri ="mongodb://localhost:27017/education";
+const mongodbUri ="mongodb://localhost/ralikutest";
 
 const mongooseUri = uriUtil.formatMongoose(mongodbUri);
 const dbOptions = {};
@@ -33,7 +21,7 @@ mongoose.connect(mongooseUri, dbOptions, (err) => {
       console.log(err);
     }
     console.log('Db started');
-  });**/
+  });
 
 
 const app = express();
@@ -43,6 +31,7 @@ app.use('/avatars', express.static('avatars')); //added sly
 app.use('/stationery', express.static('stationery')); //added sly
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 
 
 
