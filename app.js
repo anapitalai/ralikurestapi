@@ -16,7 +16,8 @@ const userRoutes = require('./api/routes/users');
 mongoose.connect(
 
   //"mongodb://localhost:27017/raliku"
-  "mongodb://raliku:raliku2019@localhost:27017/raliku"
+  //"mongodb://raliku:raliku2019@localhost:27017/raliku"
+  "mongodb://alois:alois2019@ds347467.mlab.com:47467/raliku"
   , {
     useMongoClient: true
   });
